@@ -38,14 +38,14 @@ jobs:
         SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         SOURCE: "."
         REMOTE_HOST: ${{ secrets.VPS_HOST }}
-        REMOTE_USER: ${{ secrets.VPS_USERNAME }}
+        REMOTE_USER: ${{ secrets.VPS_USER }}
         TARGET: "/var/www/html/expense"
 
     - name:  Run Remote/Artisan Commands
       uses: appleboy/ssh-action@v0.1.6
       with:
         host: ${{ secrets.VPS_HOST }}
-        username: ${{ secrets.VPS_USERNAME }}
+        username: ${{ secrets.VPS_USER }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
           cd /var/www/html/expense
