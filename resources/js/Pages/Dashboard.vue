@@ -63,7 +63,7 @@ const stats = {
         <template #header>
             <div class="flex items-center justify-between">
                 <h2 class="text-xl font-semibold leading-tight text-gray-800">
-                    Financial Dashboard
+                    Financial Dashboard!
                 </h2>
                 <button class="px-4 py-2 text-white bg-indigo-600 rounded-lg hover:bg-indigo-700">
                     Add Expense
