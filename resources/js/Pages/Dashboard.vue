@@ -1,6 +1,6 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
-import { Head } from '@inertiajs/vue3';
+import { Head, Link } from '@inertiajs/vue3';
 import { ref, defineProps } from 'vue';
 import StatsSummary from '@/Components/Dashboard/StatsSummary.vue';
 import ExpenseTrend from '@/Components/Dashboard/ExpenseTrend.vue';
@@ -67,16 +67,7 @@ const stats = {
     <Head title="Dashboard" />
 
     <AuthenticatedLayout>
-        <template #header>
-            <div class="flex items-center justify-between">
-                <h2 class="text-xl font-semibold leading-tight text-gray-800">
-                    Financial Dashboard!
-                </h2>
-                <button class="px-4 py-2 text-white bg-indigo-600 rounded-lg hover:bg-indigo-700">
-                    Add Expense
-                </button>
-            </div>
-        </template>
+        
 
         <div class="py-12">
             <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">

@@ -17,10 +17,11 @@ class ExpenseController extends Controller
         $expenses = auth()->user()->expenses()
             ->with('category')
             ->latest()
-            ->get();
+            ->paginate(10);
 
-        $totalExpenses = $expenses->sum('amount');
-        $monthlyExpenses = $expenses->where('date', '>=', now()->startOfMonth())->sum('amount');
+        $allExpenses = auth()->user()->expenses()->get();
+        $totalExpenses = $allExpenses->sum('amount');
+        $monthlyExpenses = $allExpenses->where('date', '>=', now()->startOfMonth())->sum('amount');
         
         $categoryTotals = auth()->user()->categories()
             ->withSum('expenses', 'amount')
