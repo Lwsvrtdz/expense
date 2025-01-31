@@ -1,11 +1,18 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head } from '@inertiajs/vue3';
-import { ref } from 'vue';
+import { ref, defineProps } from 'vue';
 import StatsSummary from '@/Components/Dashboard/StatsSummary.vue';
 import ExpenseTrend from '@/Components/Dashboard/ExpenseTrend.vue';
 import ExpenseByCategory from '@/Components/Dashboard/ExpenseByCategory.vue';
 import TransactionsTable from '@/Components/Dashboard/TransactionsTable.vue';
+
+const props = defineProps({
+    stats: Array,
+    monthlyData: Object,
+    categoryData: Object,
+    recentTransactions: Array,
+});
 
 const monthlyData = {
     labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
