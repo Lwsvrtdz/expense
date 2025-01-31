@@ -31,6 +31,13 @@ jobs:
     - name: Build NPM Assets
       run: npm run build
 
+    - name: Test SSH Connection
+      run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} "echo 'Connection successful'"
+
     - name: Synchronize Files To Server
       uses: easingthemes/ssh-deploy@main
       env:
